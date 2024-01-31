@@ -1,0 +1,148 @@
+<!doctype html>
+<html class="theme-8bit-grayscale">
+  <head>
+   
+  <title>POCIVERSE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A minimal CSS framework that uses no classes to give pages a retro look.">
+
+  <script>
+    function showDialog() {
+      var dialog = document.querySelector('#dialog');
+      dialog.setAttribute('open', true);
+
+      setTimeout(() => {
+        dialog.removeAttribute('open');
+      }, 3000);
+    }
+
+    function changeTheme(color) {
+      var html = document.querySelector('html');
+      
+      for (var c of html.classList.values()) html.classList.remove(c);
+
+      html.classList.add(`theme-8bit-${color}`);
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,600;1,300;1,600&amp;display=swap" rel="stylesheet">
+  <link id="css-8bit-style" rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --font-family: 'Source Code Pro', monospace;
+    }
+  </style>
+
+
+  </head>
+  <body>
+    <header>
+    <h4>Pociverse <strong>sticky</strong>.</h4>
+    <button onclick="showDialog()">What is Pociverse?</button>
+    </header>
+
+    <aside>
+        <p><a href="https://discord.gg/QN9W9pDy">Discord</a></p>
+        <p><a href="https://twitter.com/pociverse">Twitter</a></p>
+    </aside>
+    <main>
+        <audio id="backgroundMusic" autoplay loop>
+        <source src="hotline_miami - Paris.mp3" type="audio/mp3">
+    </audio>
+
+    <button id="audioControl">Music off</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('backgroundMusic');
+            var audioControlButton = document.getElementById('audioControl');
+
+            var isMusicEnabled = localStorage.getItem('isMusicEnabled') === 'true';
+
+            if (isMusicEnabled) {
+                audioControlButton.textContent = 'Music off';
+            }
+
+            audioControlButton.addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play();
+                    audioControlButton.textContent = 'Music off';
+                    localStorage.setItem('isMusicEnabled', 'true');
+                } else {
+                    audio.pause();
+                    audioControlButton.textContent = 'Music on';
+                    localStorage.setItem('isMusicEnabled', 'false');
+                }
+            });
+        });
+    </script>
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+        var video = document.getElementById('myVideo');
+        var playPauseButton = document.getElementById('play-pause-button');
+
+        playPauseButton.addEventListener('click', function () {
+            if (video.paused) {
+                video.play();
+                playPauseButton.innerHTML = 'Pause';
+            } else {
+                video.pause();
+                playPauseButton.innerHTML = 'Play';
+            }
+        });
+    });
+
+    </script>
+        <dialog id="dialog">
+            <p>Poci is actualy inspiread by a real ghost named Pocong, a traditional ghost from Indonesia.</p>
+        </dialog>
+        <h1>Pociverse culture.</h1>
+        <p>
+            <mark>TBA</mark> <a href="https://magiceden.io/">Mint on Magiceden Launchpad.</a> Fuck the meta. 
+         </p>
+        <hr>
+
+        <p>Join the Pociverse, we're waiting for you in the Graveyard🪦 by <a href="https://twitter.com/poci_sol">@poci_sol</a> 
+        </p>
+        <p><mark>LFG!</mark> </p>
+        <hr>
+        <h6>WHAT IS POCIVERSE? <br></h6>
+        <p>
+          Pociverse is a generative collections of a
+          ghost creature named Poci, Poci itself is a
+          little cute ghost that inspired by a real ghost
+          named pocong. Each Poci is made with care
+          and uniqueness, ensuring that no two Poci will
+          be the same</p>
+          <hr>
+
+        <div class="video-container">
+          <video id="myVideo" width="720" height="360" autoplay loop>
+              <source src="video/video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        <div class="video-controls">
+            <button id="play-pause-button" class="play">Play</button>
+        </div>
+        </div>
+        <hr>
+
+         <div class="parent">
+            <img src=gif/1.gif>
+            <img src=gif/2.gif>
+            <img src=gif/3.gif>
+            <img src=gif/4.gif>
+            <img src=gif/5.gif>
+            <img src=gif/6.gif>
+         </div>
+
+         <hr>
+         <p>WANT MORE? GO TO:<a href="https://discord.gg/QN9W9pDy"><mark>CLICK</mark></a></p>
+         <hr>
+
+         <p><a href="https://discord.gg/QN9W9pDy">Discord         </a><a href="https://twitter.com/pociverse">Twitter</a></p>
+        
+         <hr>
+    </main>
+  </body>
+</html>
